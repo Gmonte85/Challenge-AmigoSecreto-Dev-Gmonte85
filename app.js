@@ -5,7 +5,7 @@ function adicionarAmigo() {
     let listaAmigos = document.getElementById("listaAmigos");
 
     if (nome !== "") {
-        // Verifica se o nome já está na lista
+        // Valida se já consta o nome já está na lista
         let nomesExistentes = Array.from(listaAmigos.children).map(li => li.textContent.toLowerCase());
         
         if (!nomesExistentes.includes(nome)) {
@@ -14,10 +14,10 @@ function adicionarAmigo() {
             listaAmigos.appendChild(li);
             input.value = "";
         } else {
-            alert("Este nome já foi adicionado.");
+            alert("Este nome já foi utilizado.");
         }
     } else {
-        alert("Por favor, digite um nome antes de adicionar.");
+        alert("Digite um nome antes de adicionar.");
     }
 }
 
@@ -27,15 +27,15 @@ function sortearAmigo() {
     resultado.innerHTML = "";
 
     if (lista.length > 0) {
-        // Sorteia um nome e remove da lista
+        // Gera o sorteio de um nome e o remove da lista
         let index = Math.floor(Math.random() * lista.length);
         let sorteado = lista[index].textContent;
         lista[index].remove();
 
         let li = document.createElement("li");
-        li.textContent = `O amigo secreto sorteado é: ${sorteado}`;
+        li.textContent = `Seu amigo secreto é: ${sorteado}`;
         resultado.appendChild(li);
     } else {
-        alert("Adicione pelo menos um amigo antes de sortear.");
+        alert("Indique pelo menos um amigo antes de sortear.");
     }
 }
